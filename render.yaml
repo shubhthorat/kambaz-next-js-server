@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: kambaz-node-server-app
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /hello
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: SERVER_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        value: https://cs4550.shubhthorat.com
